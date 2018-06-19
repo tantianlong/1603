@@ -14,13 +14,13 @@ gulp.task('server', function() {
             port: 6060,
             hostname: 'localhost',
             open: true,
-            middleware: function(req, res, next) {
-                if (req.url === '/favicon.ico') {
-                    return;
-                }
-                var pathname = url.parse(req.url).pathname;
-                pathname == pathname == '/' ? '/index.html' : pathname;
-            }
+            // middleware: function(req, res, next) {
+            //     if (req.url === '/favicon.ico') {
+            //         return;
+            //     }
+            //     var pathname = url.parse(req.url).pathname;
+            //     pathname == pathname == '/' ? '/index.html' : pathname;
+            // }
         }))
 });
 gulp.task('scss', function() {
@@ -31,4 +31,5 @@ gulp.task('scss', function() {
 })
 gulp.task('watch', function() {
     gulp.src('src/scss/*.scss')
-})
+});
+gulp.task('default', ['server', 'scss']);
